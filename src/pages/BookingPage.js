@@ -1,15 +1,18 @@
 import {FaBarcode} from "react-icons/fa"
+import { useParams } from "react-router-dom";
 
 const BookingPage = () => {
+   const { fromvalue, toValue } = useParams(); // from and to values
+
   return (
-    <div className="pt-20 flex justify-center">
-        <div className="bg-white text-black rounded-xl p-6 w-3/4">
-            <div className="flex justify-between">
+    <div className="pt-5 md:pt-10 flex justify-center ">
+        <div className="bg-white text-black rounded-xl p-3 md:p-6 w-3/4">
+            <div className="flex flex-col gap-1 sm:flex-row justify-between">
                <div className="text-2xl font-bold">Flight Tickets</div>
-                <div className="flex">
-                   <div className="font-bold text-gray-500">New Delhi</div>
+                <div className="flex flex-row">
+                   <div className="font-bold text-gray-500">{fromvalue}</div>
                    <div>⏩</div>
-                   <div className="font-bold text-gray-500">Banglore</div>
+                   <div className="font-bold text-gray-500">{toValue}</div>
                  </div>
             </div>
             {/* ticket details */}

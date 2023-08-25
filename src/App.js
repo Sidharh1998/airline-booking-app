@@ -5,15 +5,17 @@ import BookingPage from "./pages/BookingPage";
 import Navbar from "./components/Navbar";
 
 function App() {
+
+
   return (
-    <div className="App bg-gradient-to-r from-violet-500 to-blue-500 h-screen w-screen text-white px-20 pt-6">
+    <div className="App bg-gradient-to-r from-violet-500 to-blue-500 h-screen w-screen  text-white md:px-20 px-10  pt-6 ">
     
     <BrowserRouter>
     <Navbar/>
     <Routes>
     <Route path='/' element={<Home/>}/>
-      <Route path='/flights' element={<FlightsAvailable/>} />
-      <Route path='/flights/booking' element={<BookingPage/>} />
+      <Route path=':fromvalue/:toValue' element={<FlightsAvailable/>} />
+      <Route path=':fromvalue/:toValue/booking' element={<BookingPage/>} />
     </Routes>
     </BrowserRouter>
     </div>

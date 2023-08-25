@@ -1,11 +1,14 @@
 import {PiAirplaneInFlightFill} from "react-icons/pi"
 import { Link } from "react-router-dom"
+import { useParams } from 'react-router-dom';
 
 const FlightDetails = ({flight}) => {
+    const { fromvalue, toValue } = useParams(); // from and to values
+
   return (
-    <div className="bg-white text-black rounded-lg flex p-2 justify-between items-center shadow-slate-50 shadow-md">
+    <div className="flex   flex-wrap bg-white text-black rounded-lg  p-2 justify-between items-center shadow-slate-50 shadow-md">
         {/* flight name */}
-        <div className="flex gap-2 items-center ">
+        <div className="flex flex-col md:flex-row gap-2 items-center ">
             
             <div className="text-blue-800 text-5xl"><PiAirplaneInFlightFill/></div>
             <div className="font-bold">{flight.name}</div>
@@ -14,7 +17,7 @@ const FlightDetails = ({flight}) => {
         {/* start time */}
         <div className="flex flex-col gap-1 items-center ">
             <div className="font-bold">{flight.start}</div>
-            <div className="font-light text-sm">New Delhi</div>
+            <div className="font-light text-sm">{fromvalue}</div>
         </div>
         {/* total time */}
         <div className="flex flex-col gap-1">
@@ -23,15 +26,15 @@ const FlightDetails = ({flight}) => {
             <div className="text-xs font-light">{flight.type}</div>
         </div>
         {/* end time */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 items-center">
             <div  className="font-bold">{flight.end}</div>
-            <div className="font-light text-sm">Banglore</div>
+            <div className="font-light text-sm">{toValue}</div>
         </div>
         {/* price and comfirmation */}
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
             <div className="font-bold">$ {flight.cost}</div>
             <div>
-                <Link to={'/flights/booking'} >
+                <Link to={'booking'} >
                 <button className="p-1 rounded-lg bg-orange-300 text-white">Confirm</button>
                 </Link>            
             </div>
